@@ -49,8 +49,29 @@ print('this is your information, no you cannot change it.')
 print(name + str(age) + favoritething + pet)
 
 tprint("let's go!")
-
+time.sleep(2)
 print('you are about to start a bad quality port of a really good game. ')
 print('stardew valley the text edition , like the original was created by a solo developer.')
+time.sleep(2)
 print('If you would like to donate please send me an email and I can reccive cash in the mail.')
 print('Just send a photo of your passport along with your SSN and credit card info.')
+time.sleep(2)
+print('ok seriously though lets start.')
+print('You (yes you) are a farmer. \n you must make money.')
+print('run the command /farm to get started.')
+input = input('>')
+def farm():
+    print('you are in farming mode')
+    turnips=0
+    turnipspersecond=turnips/4
+    print('you have '+turnips+' turnips, press any key and then enter to plant turnips.')
+    input('')
+    time.sleep(random.randint(1,20))
+    turnips=turnips+random.randint(1,300)
+    turnipspersecond=turnips/4
+    print('you now have '+ turnips+ ' producing a total of ' + turnipspersecond + ' turnips every second.')
+
+if input == '/farm':
+    farm()
+else:
+    farm()
