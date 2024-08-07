@@ -1,0 +1,6 @@
+print('you are reading a file.')
+filename=input('input your name.')
+f=open(filename+'.txt', 'r')
+data=f.read()
+save=data.split(',')
+print(save)
