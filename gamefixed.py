@@ -3,18 +3,18 @@ import time
 import webbrowser
 from art import tprint  # Ensure `tprint` is imported from `art`
 
-print('Put this window in fullscreen')
+print('Put this window in fullscreen. (There is some ascii art)')
 x1 = 5
 for i in range(5):
     print(str(x1 - i))
-    time.sleep(0)
+    time.sleep(.4)
 
 tprint('Stardew Valley \n Text Edition')
 time.sleep(2)
 
 def menu():
     print('MENU:')
-    print('X1: Create a new save.')
+    print('1: Create a new save.')
     print('2: Load an existing save')
     print('3: About, copyright etc. (boring stuff)')
     print('4: The debug version')
@@ -29,12 +29,29 @@ def handle_menu():
             import newsave
             break
         elif option =='2':
-            import readsave
+            from readsave import save
             break
-
+        elif option == '3':
+            print('loading information')
+            time.sleep(random.randint(1,5))
+            print('Stardew valley text edition was created by @finncoolcoder on github. \n if you paid money for this software you were scammed \n do what you like with that information.')
+            print('this script is not a 1 to 1 recreation of the original game Stardew valley.\n This is strictly a parody. All original Ideas belong to ConcernedApe and his studio affliates.')
+            input()
 handle_menu()
+from readsave import save
+data = save
 
-print('You have passed')
+#unpacks list to variables
+age, name, favorite_animal, beard, favorite_color = data
+
+
+print("Age:", age)
+print("Name:", name)
+print("Favorite Animal:", favorite_animal)
+print("Beard?:", beard)
+print("Favorite Color:", favorite_color)
+time.sleep(3)
+print('You have passed \n \n \n')
 print('Welcome to Stardew Valley. \n \n \n \n')
 
 
@@ -56,12 +73,13 @@ time.sleep(.5)
 print('Run the command /farm to get started.')
 
 ask2 = input('> ')
-
+#defines the farming simulation command
+#this is currently really broken.
 def farm():
     global turnips, turnips_per_second
     turnips = 0
     turnips_per_second = turnips / 4
-    print(f'You have {turnips} turnips. Press any key and then enter to plant turnips.')
+    print(f'You have {turnips} turnips. Press any key and then enter to plant turnips \n This may take a while.')
     input('>')
     time.sleep(random.randint(1, 20))
     turnips += random.randint(1, 300)
@@ -75,10 +93,12 @@ else:
 
 
 try:
-    while turnips<999999999999999999999999999999999999999999999999:
+    while turnips <999999999999999999999999999999999999999999999999:
         turnips += turnips_per_second*2
         turnips_per_second = turnips / 4
         print(f'Turnips(press ctrl+c to exit): {turnips}')
         time.sleep(0.9)
 except KeyboardInterrupt:
-    print('Exiting the farming simulation.')
+    import webbrowser
+    webbrowser.open_new_tab('https://youtube.com/@finndolf')
+    print('subscribe.')
